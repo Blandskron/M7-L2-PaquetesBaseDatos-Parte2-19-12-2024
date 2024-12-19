@@ -1,0 +1,10 @@
+python manage.py shell
+
+from clientes.models import Clientes, Reserva
+from datetime import date
+
+cliente1 = Clientes.objects.create(nombre="Alice", apellido="Johnson", correo="alice@example.com", telefono="1234567890")
+cliente2 = Clientes.objects.create(nombre="Bob", apellido="Smith", correo="bob@example.com", telefono="0987654321")
+
+Reserva.objects.create(numero_habitacion="101", ingreso=date(2024, 12, 15), salida=date(2024, 12, 20), cliente=cliente1, precio=500.00)
+Reserva.objects.create(numero_habitacion="102", ingreso=date(2024, 12, 16), salida=date(2024, 12, 21), cliente=cliente2, precio=600.00)
